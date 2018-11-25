@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  	<head>
+	    <!-- Required meta tags -->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	    <!-- CSS Link -->
+	    <link rel="stylesheet" type="text/css" href="css/map.css">
+
+	    <!--Mapbox-->
+	 	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.js'></script>
+	  	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
+
+	    <title>Segurança Negligenciada?</title>
+  	</head>
+  	<body>
+
+			<div id="map"></div>	
+			  		<input type="checkbox" id="check">
+			  		<label id="icone" for="check"><img src="./bg_img/menu.png" width="40px"></label>
+					  	
+					  	
+					  	
+			  		<div class="barra">
+
+			  			<nav class="menu-map" id="listing-group">
+			  				<div class="menu-title">
+			  					Relatórios 
+			  				</div>
+			  				<a href="" ><div class="link">Países mais atacados</div></a>
+			  				<a href="" ><div class="link">Ataques DDoS</div></a>
+			  				<a href="" ><div class="link">Ataques por região</div></a>
+			  				<a href="" ><div class="link">Tipos de protocolo</div></a>
+			  				<div class="menu-title">
+			  					Voar pelo mapa 
+			  				</div>
+			  				<div class="menu-btns-loc">
+			  					<div class="container">
+				  					<div class="row">
+										<div class="col-sd-3 btn-loc">
+											<input type="button" value="VG" id="visaoGeral"/></br>
+										</div>
+										<div class="col-sd-3 btn-loc">
+											<input type="button" value="EU" id="europa"/></br>
+										</div>
+										<div class="col-sd-3 btn-loc">
+											<input type="button" value="NA" id="amNorte"/>
+										</div>
+										<div class="col-sd-3 btn-loc">
+											<input type="button" value="SA" id="amSul"/>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sd-3 btn-loc">
+											<input type="button" value="AS" id="asia"/>
+										</div>
+										<div class="col-sd-3 btn-loc">
+											<input type="button" value="AF" id="africa"/></br>
+										</div>
+										<div class="col-sd-3 btn-loc">
+											<input type="button" value="OC" id="oceania"/></br>
+										</div>
+										<div class="col-sd-3 btn-loc">
+											<input type="button" value="RU" id="russia"/></br>
+										</div>
+									</div>
+								</div>		
+							</div>	
+			  			</nav>
+					</div>		
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

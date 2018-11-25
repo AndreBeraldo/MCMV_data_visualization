@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous&subset=latin-ext');@charset "UTF-8";
+* {
+	margin:0;
+	padding:0;
+	color: rgba(255,255,255,1);
+}
+
+body{
+	font-family: 'Righteous', cursive;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width: 100%;
+	background-image: url(../bg_img/bg3.jpg);
+	background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: 30% 30%;
+    background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    -webkit-background-size:cover;
+}
+
+.title{
+	font-size: 58px;
+	text-align: center;    
+	text-shadow: 3px 3px 8px black;
+	padding-top: 20px;
+}
+
+.link{
+	text-transform: uppercase;
+	padding-top: 25px;
+	font-size: 25px;
+}
+
+.link b:hover{
+	color: white;
+	transition: .4s;
+}
+
+b{
+	color: #23D930;
+	font-size: 115%;
+}
+
+.content{
+	text-align: center;
+	font-size: 16px;   
+	padding-top: 25px;
+	text-shadow: 3px 3px 8px black;
+}
+
+.seta-text{
+	font-size: 30px;
+	color: #23D930;
+}
+#setas{
+	width:15%;
+	padding-top: 10px;
+	padding-bottom: 25px;
+	transform: rotate(90deg);
+}
+
+@media (min-width: 768) {
+	.title{
+		font-size: 61px;
+		padding-top: 25px;
+	}
+
+	.content{
+		font-size: 18px;
+	}
+
+}
+@media (min-width: 992px) {
+	.title{
+		font-size:64px;
+		padding-top: 80px;
+	}
+
+	.content{
+		font-size: 20px;
+		padding-top: 60px;
+	}
+
+}
