@@ -1,9 +1,9 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoicGh4Njc4IiwiYSI6ImNqZjVpb2RieTBudnMzM2x0eXUzZHUxdnoifQ.Dev7xcoIcb2V3lIJ8FvOAw';
 const map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/phx678/cjl4bcgfo1vvi2tn32sc5t628',
-  center: [-10,20],
-  zoom: 1.5
+  style: 'mapbox://styles/phx678/cjoxeq3hnc2182rmnjmxk348w',
+  center: [-55.9253,-14.235],
+  zoom: 3.5
 });
 
 
@@ -20,53 +20,41 @@ map.addControl(new mapboxgl.FullscreenControl());
 
 document.getElementById('visaoGeral').addEventListener('click', function () {
     map.flyTo({
-        center: [-10,20],
-		zoom: 1.5
+        center: [-55.9253,-14.235],
+		zoom: 3.5
     });
 });
 
-document.getElementById('europa').addEventListener('click', function () {
+document.getElementById('sul').addEventListener('click', function () {
     map.flyTo({
-        center: [15.35,48.8566],
-		zoom: 3
+        center: [-52,-27],
+		zoom: 5.5
     });
 });
 
-document.getElementById('amNorte').addEventListener('click', function () {
+document.getElementById('sudeste').addEventListener('click', function () {
     map.flyTo({
-        center: [-98.4194,50],
-		zoom: 2
+        center: [-47.2096,-20.0],
+		zoom: 5.5
     });
 });
 
-document.getElementById('amSul').addEventListener('click', function () {
+document.getElementById('nordeste').addEventListener('click', function () {
     map.flyTo({
-        center: [-47,-15],
-		zoom: 2
+        center: [-45,-10],
+		zoom: 5
     });
 });
-document.getElementById('asia').addEventListener('click', function () {
+document.getElementById('centro-oeste').addEventListener('click', function () {
     map.flyTo({
-        center: [105,30],
-		zoom: 3
+        center: [-56,-16],
+		zoom: 5
     });
 });
-document.getElementById('africa').addEventListener('click', function () {
+document.getElementById('norte').addEventListener('click', function () {
     map.flyTo({
-        center: [25,5],
-		zoom: 2
-    });
-});
-document.getElementById('oceania').addEventListener('click', function () {
-    map.flyTo({
-        center: [135,-25],
-		zoom: 2
-    });
-});
-document.getElementById('russia').addEventListener('click', function () {
-    map.flyTo({
-        center: [100,65],
-		zoom: 2
+        center: [-60,-5],
+		zoom: 4.5 
     });
 });
 
