@@ -31,7 +31,15 @@
 			<div class="menu-title">
 				Relatórios 
 			</div>
-			<a href="" ><div class="link">Países mais atacados</div></a>
+			<a data-toggle="modal" data-target="#incentivoFiscal"><div class="link">Maior Incentivo Fiscal</div></a>
+
+
+
+			<div class="menu-title">
+				Filtros 
+			</div>
+			<a data-toggle="modal" data-target="#cadastrar"><div class="link">Selecionar Filtros</div></a>
+
 
 
 
@@ -46,9 +54,7 @@
 			<a><div class="link"  type="button" value="CO" id="centro-oeste">Centro-Oeste</div></a>
 			<a><div class="link"  type="button" value="SD" id="sudeste">Sudeste</div></a>
 			<a><div class="link"  type="button" value="SUL" id="sul">Sul</div></a>
-			<div class="col-md-6 wow jackInTheBox" data-wow-delay="2.2s">
-				<a data-toggle="modal" data-target="#cadastrar"><button class="button" style="font-family: 'Russo One', sans-serif;" data-toggle="tooltip" data-placement="bottom" title="Registre-se aqui! É super rápido!">Cadastrar</button></a>
-			</div>
+			
 		</div>	
 	</nav>
 </div>		
@@ -56,56 +62,54 @@
 
 
 
-<div class="modal fade" id="cadastrar" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="incentivoFiscal" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<p>Cadastrar usuário</p>
+				<p>Localidades com maior incentivo fiscal pelo MCMV</p>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-10">
-							<div class="form-group">
-								<label for="recipient-name" class="col-form-label">Nome completo: </label>
-								<input class="form-control"  type="text" id="nome" required name="nome" placeholder="Entre com seu nome">
+				<div class="row">
+					<div class="col-3">
+						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+							<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Como funciona</a>
+							<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Regiões</a>
+							<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Estados</a>
+							<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Cidades</a>
+						</div>
+					</div>
+					<div class="col-9">
+						<div class="tab-content" id="v-pills-tabContent">
+							<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><p class="paragrafos">O programa "Minha Casa Minha Vida" tem por objetivo oferecer condições atrativas para o financiamento de moradias urbanas para famílias de baixa renda. Neste relatório é capaz de encontrar gráficos que demonstram como tem sido distribuído os recursos através das macro-regiões, os estados e os municípios.</p></div>
+							<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+								<div id="containerRegioes" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="message-text" class="col-form-label">Senha: </label>
-										<input class="form-control" type="password" id="senha" required name="senha"  placeholder=" Defina sua senha">
-									</div>
-								</div>
+							<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+								<div id="containerEstados" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label for="message-text" class="col-form-label">E-mail: </label>
-										<input class="form-control" type="email" id="email" required name="email" placeholder=" Defina sua senha">
-
-									</div>
-								</div>
+							<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+								<div id="containerCidades" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 							</div>
 						</div>
-						<div class="col-md-1"></div>
 					</div>
-
 				</div>
-				<div class="modal-footer text-center">
-					<button type="submit" class="btn btn-site">Cadastrar</button>
-				</form>
 			</div>
+
 		</div>
 	</div>
 </div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="js/themeDarkUnica.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/incentivoFiscal.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
