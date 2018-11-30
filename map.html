@@ -46,9 +46,62 @@
 			<a><div class="link"  type="button" value="CO" id="centro-oeste">Centro-Oeste</div></a>
 			<a><div class="link"  type="button" value="SD" id="sudeste">Sudeste</div></a>
 			<a><div class="link"  type="button" value="SUL" id="sul">Sul</div></a>
+			<div class="col-md-6 wow jackInTheBox" data-wow-delay="2.2s">
+				<a data-toggle="modal" data-target="#cadastrar"><button class="button" style="font-family: 'Russo One', sans-serif;" data-toggle="tooltip" data-placement="bottom" title="Registre-se aqui! É super rápido!">Cadastrar</button></a>
+			</div>
 		</div>	
 	</nav>
 </div>		
+
+
+
+
+<div class="modal fade" id="cadastrar" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<p>Cadastrar usuário</p>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<div class="form-group">
+								<label for="recipient-name" class="col-form-label">Nome completo: </label>
+								<input class="form-control"  type="text" id="nome" required name="nome" placeholder="Entre com seu nome">
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="message-text" class="col-form-label">Senha: </label>
+										<input class="form-control" type="password" id="senha" required name="senha"  placeholder=" Defina sua senha">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="message-text" class="col-form-label">E-mail: </label>
+										<input class="form-control" type="email" id="email" required name="email" placeholder=" Defina sua senha">
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+
+				</div>
+				<div class="modal-footer text-center">
+					<button type="submit" class="btn btn-site">Cadastrar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
