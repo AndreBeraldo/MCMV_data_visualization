@@ -130,15 +130,9 @@
 	<script type="text/javascript">
 
 		'{% for row in getValor %}'
-			var nome = '{{ row.2 }}';
-			var uh = '{{ row.3 }}';
-			var valor = '{{row.4 }}';
-			var concretizacao = '{{ row.5 }}';
-			var code = '<h4 class="popup-title">' + nome + '</h3>'
-			+'<p class="popup-content">Unidades Habitacionais: '+ uh + '</br>'
-			+'Valor investido: '+ valor + '</br>'
-			+'Concretização: '+ concretizacao + '%</p>';
-
+			var code = '<h4 class="popup-title">' + '{{ row.2 }}' + '</h3>'
+			+'<p class="popup-content">Unidades Habitacionais: '+ '{{ row.3 }}' + '</br>'
+			+'Valor investido: '+ '{{row.4 }}' + '</p>';
 
 			  // create the popup
 			var popup = new mapboxgl.Popup({ closeButton: false,
