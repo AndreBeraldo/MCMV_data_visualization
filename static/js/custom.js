@@ -4,7 +4,7 @@
 ];*/
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicGh4Njc4IiwiYSI6ImNqZjVpb2RieTBudnMzM2x0eXUzZHUxdnoifQ.Dev7xcoIcb2V3lIJ8FvOAw';
-const map = new mapboxgl.Map({
+map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/phx678/cjp3a11ip1ye02sn28wte5vqn',
   center: [-55.9253,-14.235],
@@ -16,12 +16,6 @@ const map = new mapboxgl.Map({
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-right');
 map.addControl(new mapboxgl.FullscreenControl());
-
-
-/*var marker = new mapboxgl.Marker()
-  .setLngLat([-47.2096,-20.0])
-  .addTo(map);*/
-
 
 
 document.getElementById('visaoGeral').addEventListener('click', function () {

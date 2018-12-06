@@ -258,3 +258,32 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
     border-radius: 0;
     color:#fff;
 }
+
+
+
+
+    #marker {
+        background-color: #3DB553;
+        color: red;
+        background-size: cover;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px #333 solid;
+    }
+
+    .mapboxgl-popup {
+        max-width: 500px;
+    }
+
+    .popup-title{
+        color: green;
+        font-size: 18px;
+    }
+    .popup-content{
+        color: black;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
