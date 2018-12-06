@@ -27,9 +27,14 @@
 
 		<nav class="menu-map" id="listing-group">
 			<div class="menu-title">
-				Relatórios 
+				Plotagens 
 			</div>
 			<a data-toggle="modal" data-target="#incentivoFiscal"><div class="link">Maior Incentivo Fiscal</div></a>
+			<a id="renda1"><div class="link">Renda 1</div></a>
+			<a id="renda2"><div class="link">Renda 2</div></a>
+			<a id="renda3"><div class="link">Renda 3</div></a>
+			<a id="marcacoesMaisCaras"><div class="link">Marcações + Caras!</div></a>
+			<a id="removerMarcacoes"><div class="link">Remover Marcações</div></a>
 
 
 
@@ -122,36 +127,123 @@
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
 
 	<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
-	<script src="js/incentivoFiscal.js"></script>
+	<script src="{{ url_for('static', filename='js/removerMarcacoes.js') }}"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+
 	<script type="text/javascript">
+		document.getElementById("renda1").onclick = function () { 
+			'{% for row in getValor %}'
+				if('{{row.4}}' == "Faixa 1"){
+					var code = '<h4 class="popup-title-r2">' + '{{ row.3 }}' +' / '+ '{{ row.2 }}'+'</h4>'
+					+'<p class="popup-content">Unidades Habitacionais: '+ '{{ row.5 }}' + '</br>'
+					+'Valor investido: '+ '{{row.6 }}' + '</br>'
+					+'Renda: '+ '{{row.4 }}' + '</p>';
 
-		'{% for row in getValor %}'
-			var code = '<h4 class="popup-title">' + '{{ row.2 }}' + '</h3>'
-			+'<p class="popup-content">Unidades Habitacionais: '+ '{{ row.3 }}' + '</br>'
-			+'Valor investido: '+ '{{row.4 }}' + '</p>';
-
-			  // create the popup
-			var popup = new mapboxgl.Popup({ closeButton: false,
+					  // create the popup
+					  var popup = new mapboxgl.Popup({ closeButton: false,
 					  	closeOnClick: true, offset: 25 })
-					    .setHTML(code);
+					  .setHTML(code);
 
-			// create DOM element for the marker
-			var el = document.createElement('div');
-			el.id = 'marker';
+					// create DOM element for the marker
+					var el = document.createElement('div');
+					el.id = 'marker-r1';
 
-			// create the marker
-			new mapboxgl.Marker(el)
-			.setLngLat(['{{row.0}}', '{{row.1}}'])
-			    .setPopup(popup) // sets a popup on this marker
-			    .addTo(map);
-	    '{% endfor %}'
-	
+					// create the marker
+					new mapboxgl.Marker(el)
+					.setLngLat(['{{row.0}}', '{{row.1}}'])
+					    .setPopup(popup) // sets a popup on this marker
+					    .addTo(map);
+					}
+
+			'{% endfor %}'
+		};
+
+		document.getElementById("renda2").onclick = function () { 
+			'{% for row in getValor %}'
+			if('{{row.4}}' == "Faixa 2"){
+				var code = '<h4 class="popup-title-r2">' + '{{ row.3 }}' +' / '+ '{{ row.2 }}'+'</h4>'
+				+'<p class="popup-content">Unidades Habitacionais: '+ '{{ row.5 }}' + '</br>'
+				+'Valor investido: '+ '{{row.6 }}' + '</br>'
+				+'Renda: '+ '{{row.4 }}' + '</p>';
+
+				  // create the popup
+				  var popup = new mapboxgl.Popup({ closeButton: false,
+				  	closeOnClick: true, offset: 25 })
+				  .setHTML(code);
+
+				// create DOM element for the marker
+				var el = document.createElement('div');
+				el.id = 'marker-r2';
+
+				// create the marker
+				new mapboxgl.Marker(el)
+				.setLngLat(['{{row.0}}', '{{row.1}}'])
+				    .setPopup(popup) // sets a popup on this marker
+				    .addTo(map);
+				}
+
+				'{% endfor %}'
+		};
+
+		document.getElementById("renda3").onclick = function () { 
+			'{% for row in getValor %}'
+			if('{{row.4}}' == "Faixa 3"){
+				var code = '<h4 class="popup-title-r3">' + '{{ row.3 }}' +' / '+ '{{ row.2 }}'+'</h4>'
+				+'<p class="popup-content">Unidades Habitacionais: '+ '{{ row.5 }}' + '</br>'
+				+'Valor investido: '+ '{{row.6 }}' + '</br>'
+				+'Renda: '+ '{{row.4 }}' + '</p>';
+
+				  // create the popup
+				  var popup = new mapboxgl.Popup({ closeButton: false,
+				  	closeOnClick: true, offset: 25 })
+				  .setHTML(code);
+
+				// create DOM element for the marker
+				var el = document.createElement('div');
+				el.id = 'marker-r3';
+
+				// create the marker
+				new mapboxgl.Marker(el)
+				.setLngLat(['{{row.0}}', '{{row.1}}'])
+				    .setPopup(popup) // sets a popup on this marker
+				    .addTo(map);
+				}
+
+				'{% endfor %}'
+		};
+
+		document.getElementById("marcacoesMaisCaras").onclick = function () { 
+
+			'{% for row in getValor %}'
+			if('{{row.5}}' > 50){
+				var code = '<h4 class="popup-title">' + '{{ row.3 }}' +' / '+ '{{ row.2 }}'+'</h4>'
+				+'<p class="popup-content">Unidades Habitacionais: '+ '{{ row.5 }}' + '</br>'
+				+'Valor investido: '+ '{{row.6 }}' + '</br>'
+				+'Renda: '+ '{{row.4 }}' + '</p>';
+
+				  // create the popup
+				  var popup = new mapboxgl.Popup({ closeButton: false,
+				  	closeOnClick: true, offset: 25 })
+				  .setHTML(code);
+
+				// create DOM element for the marker
+				var el = document.createElement('div');
+				el.id = 'marker';
+
+				// create the marker
+				new mapboxgl.Marker(el)
+				.setLngLat(['{{row.0}}', '{{row.1}}'])
+				    .setPopup(popup) // sets a popup on this marker
+				    .addTo(map);
+				}
+
+				'{% endfor %}'
+			};
 
 
-</script>
-</body>
-</html>
+		</script>
+	</body>
+	</html>

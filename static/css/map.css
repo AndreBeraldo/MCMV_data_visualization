@@ -271,6 +271,37 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
     border: 2px #333 solid;
 }
 
+#marker-r1 {
+    background-color: #FF534A;
+    color: red;
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px #333 solid;
+}
+#marker-r2 {
+    background-color: #E87900;
+    color: red;
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px #333 solid;
+}
+#marker-r3 {
+    background-color: #6166FF;
+    color: red;
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px #333 solid;
+}
+
 .mapboxgl-popup {
     max-width: 500px;
 }
@@ -279,6 +310,19 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
     color: green;
     font-size: 18px;
 }
+.popup-title-r1{
+    color: #FF534A;
+    font-size: 18px;
+}
+.popup-title-r2{
+    color: #E87900;
+    font-size: 18px;
+}
+.popup-title-r3{
+    color: #6166FF;
+    font-size: 18px;
+}
+
 .popup-content{
     color: black;
     text-align: center;

@@ -14,7 +14,7 @@ class getValor(Form):
 def plotAll():
 	try:
 		mycursor,mydb = connection()
-		mycursor.execute('SELECT * from view_points WHERE UH>"25.0"')
+		mycursor.execute('SELECT * from view_all')
 		data = mycursor.fetchall()
 		mycursor.close()
 		mydb.close()
