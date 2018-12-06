@@ -1,0 +1,4 @@
+flask
+wtforms
+pandas
+mysql-connector
