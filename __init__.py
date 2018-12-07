@@ -10,11 +10,6 @@ from decimal import Decimal
 app = Flask(__name__)
 app.secret_key = '123'
 
-def test_char(value):
-    if type(value) is str:
-        return True
-    return False
-
 
 def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
     geojson = {'type': 'FeatureCollection', 'features': []}
@@ -25,7 +20,7 @@ def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
                                 'coordinates': []}}
         feature['geometry']['coordinates'] = [float(row[lon]), float(row[lat])]
         for prop in properties:
-            if prop == 'cidade':
+            if prop in ['estado', 'cidade', 'faixa']:
                 feature['properties'][prop] = row[prop]
             else:
                 feature['properties'][prop] = float(row[prop])
@@ -42,14 +37,16 @@ class getValor(Form):
 def plotAll():
     try:
         mycursor, mydb = connection()
-        mycursor.execute('SELECT * from view_projects')
+        mycursor.execute('SELECT * from view_all')
         data = mycursor.fetchall()
+        print data[0]
         mycursor.close()
         mydb.close()
         gc.collect()
-        headers = ('longitude', 'latitude', 'cidade', 'unid_hab', 'invest')
-        df_data = pd.DataFrame(data=data, columns = headers)
-        cols = ['cidade', 'unid_hab', 'invest']
+        headers = ('longitude', 'latitude', 'estado', 'cidade',
+                   'faixa', 'unid_hab', 'invest')
+        df_data = pd.DataFrame(data=data, columns=headers)
+        cols = ['estado', 'cidade', 'faixa', 'unid_hab', 'invest']
         geojson = df_to_geojson(df_data, cols)
 
         return render_template("map.html", geoJson=geojson)

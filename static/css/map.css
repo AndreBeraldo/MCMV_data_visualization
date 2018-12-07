@@ -1,127 +1,130 @@
-@import url('https://fonts.googleapis.com/css?family=Righteous&subset=latin-ext');@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Righteous&subset=latin-ext');
+
+@charset "UTF-8";
 * {
-	margin:0;
-	padding:0;
-	color: rgba(255,255,255,1);
+    margin: 0;
+    padding: 0;
+    color: rgba(255, 255, 255, 1);
 }
 
-body{
-	background-color: #f9f9f9;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	width: 100%;
-    margin:0; 
-    padding:0;
-}
-*{
-   margin:0px;
-   padding:0px;
+body {
+    background-color: #f9f9f9;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-#check{
-   display:none;
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
-#icone{
-   cursor:pointer;
-   padding:15px;
-   position:absolute;
-   z-index:1;
+#check {
+    display: none;
 }
 
-.barra{
- background-color:#333;
- height:100%;
- width:250px;
- position:absolute;
- transition:all .2s linear;
- left:-250px;
- box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+#icone {
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
 }
 
-nav{
-   width:100%;
-   position:absolute;
-   top:60px;
+.barra {
+    background-color: #333;
+    height: 100%;
+    width: 250px;
+    position: absolute;
+    transition: all .2s linear;
+    left: -250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.menu-map a{
-   text-decoration:none;
+nav {
+    width: 100%;
+    position: absolute;
+    top: 60px;
 }
 
-.link{
-   background-color:#494950;
-   padding:10px;
-   text-align: center;
-   font-size:12pt;
-   transition:all .2s linear;
-   color:#fff;
-   border-bottom:2px solid #222;
-   opacity:0px;
-   margin-top:10px;
-   text-decoration: none;
+.menu-map a {
+    text-decoration: none;
 }
 
-.link:hover{
-   background-color: rgb(58,122,94);
-   transition: all .1s linear;
+.link {
+    background-color: #494950;
+    padding: 10px;
+    text-align: center;
+    font-size: 12pt;
+    transition: all .2s linear;
+    color: #fff;
+    border-bottom: 2px solid #222;
+    opacity: 0px;
+    margin-top: 10px;
+    text-decoration: none;
 }
 
-#check:checked ~ .barra{
-   transform:translateX(250px);
+.link:hover {
+    background-color: rgb(58, 122, 94);
+    transition: all .1s linear;
 }
 
-#check:checked ~ .barra nav a .link{
-   opacity:1px;
-   margin-top:0px;
-   transition-delay:.2s;
+#check:checked ~ .barra {
+    transform: translateX(250px);
 }
 
-#map { 
-	position:absolute; 
-	top:0; 
-	bottom:0; 
-	width:100%; 
+#check:checked ~ .barra nav a .link {
+    opacity: 1px;
+    margin-top: 0px;
+    transition-delay: .2s;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 /* The page is split between map and sidebar - the sidebar gets 1/3, map
 gets 2/3 of the page. You can adjust this to your personal liking. */
 .sidebar {
-  width: 20%;
+    width: 20%;
 }
 
 .map {
-  border-left: 1px solid #fff;
-  position: absolute;
-  left: 20%;
-  top: 0;
-  bottom: 0;
+    border-left: 1px solid #fff;
+    position: absolute;
+    left: 20%;
+    top: 0;
+    bottom: 0;
 }
 
-.config-icon{
-	text-shadow: 2px 2px #ff0000;
+.config-icon {
+    text-shadow: 2px 2px #ff0000;
 
 }
 
-.menu-title{
-	border-bottom: 1px dashed #fff; 
-	border-top: 1px dashed #fff;
-	text-align: center;
-	margin: 5px;
-	font-size: 20px;
+.menu-title {
+    border-bottom: 1px dashed #fff;
+    border-top: 1px dashed #fff;
+    text-align: center;
+    margin: 5px;
+    font-size: 20px;
 }
 
-.btn-loc{
-	padding-left: 6px;
+.btn-loc {
+    padding-left: 6px;
     padding-right: 6px;
 }
 
-.menu-btns-loc input{
-    background-color: rgb(58,122,94);
+.menu-btns-loc input {
+    background-color: rgb(58, 122, 94);
     margin-top: 10px;
-    text-align: center; 
+    text-align: center;
     padding: 10px;
-    border: 2px solid rgb(58,122,94);
+    border: 2px solid rgb(58, 122, 94);
     font-weight: 500;
     color: #000;
     outline: none;
@@ -131,9 +134,9 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
     border-radius: 25px;
 }
 
-.menu-btns-loc input:hover{
-    border-color: rgb(255,255,255);
-    color: rgb(255,255,255);
+.menu-btns-loc input:hover {
+    border-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     transition: 0.3s;
     outline: none;
 
@@ -141,9 +144,8 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
 
 /* MENU INTERIOR MAPA*/
 
-
 .listing-group {
-    font: 12px/20px 'Raleway',cursive;
+    font: 12px/20px 'Raleway', cursive;
     font-weight: 800;
     font-size: 12px;
     z-index: 1;
@@ -155,6 +157,7 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
 .listing-group input[type=checkbox]:first-child + label {
     border-radius: 3px 3px 0 0;
 }
+
 .listing-group input[type=checkbox] {
     display: none;
 }
@@ -167,98 +170,100 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
 }
 
 .listing-group input[type=checkbox] + label {
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0, 0, 0, .8);
     text-transform: capitalize;
-    border-color: rgb(58,122,94);
+    border-color: rgb(58, 122, 94);
     border: 2px solid;
     transition: .5s;
 }
-.listing-group input[type=checkbox] + label:hover{
-    background-color: rgba(0,0,0,.8);
+
+.listing-group input[type=checkbox] + label:hover {
+    background-color: rgba(0, 0, 0, .8);
     border: 2px solid;
     color: #16E506;
     font-weight: 800;
 }
+
 .listing-group input[type=checkbox]:checked + label {
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0, 0, 0, .8);
     border: 2px solid;
-    color: rgb(58,122,94);
+    color: rgb(58, 122, 94);
     font-weight: 800;
 }
 
-.btn-site{
+.btn-site {
     background-color: #6ACC91;
     border-radius: 0;
 }
 
-.btn-site:hover{
+.btn-site:hover {
     background-color: #B7FEE0;
     border-radius: 0;
 }
 
-.modal{
-    background-color: rgba(33,33,33, .8);
-    border: 2px solid #222; 
+.modal {
+    background-color: rgba(33, 33, 33, .8);
+    border: 2px solid #222;
 }
-.modal-header{
+
+.modal-header {
     background-color: #333;
     border: 1px solid #222;
 }
-.modal-header p{
+
+.modal-header p {
     color: #eee;
     text-align: center;
     font-size: 20px;
 }
-.modal-header span{
+
+.modal-header span {
     text-decoration: none;
     color: white;
 }
-.modal-body{
+
+.modal-body {
     background-color: #333;
     color: #eee;
     border: 1px solid #222;
 }
-.modal-footer{
+
+.modal-footer {
     background-color: #333;
     color: #eee;
     border: 1px solid #222;
 }
 
 .modal.custom {
-    outline:none;
+    outline: none;
     border: 1px solid #222;
 }
 
 .modal.custom .modal-dialog {
-    width:50%;
-    margin:0 auto;
+    width: 50%;
+    margin: 0 auto;
 }
 
-
-.paragrafos{
+.paragrafos {
     text-align: justify;
     text-indent: 1.5em;
     padding: 10px 0 5px 0;
 }
 
-
-
-.nav-pills{
+.nav-pills {
     border-radius: 0;
 }
 
-
-.nav-link{
+.nav-link {
     border-radius: 0;
-    color:#ddd;
+    color: #ddd;
 }
 
-.nav-link[area-selected=true]{
+.nav-link[area-selected=true] {
     background-color: blue;
     border-radius: 0;
-    color:#fff;
+    color: #fff;
 }
-
 
 #marker {
     background-color: #3DB553;
@@ -271,15 +276,30 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
     border: 2px #333 solid;
 }
 
-.mapboxgl-popup {
-    max-width: 500px;
+.marker {
+    background-image: url('../bg_img/mapbox-icon.png');
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-.popup-title{
+.mapboxgl-popup {
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+/*.mapboxgl-popup {*/
+/*max-width: 500px;*/
+/*}*/
+
+.popup-title {
     color: green;
     font-size: 18px;
 }
-.popup-content{
+
+.popup-content {
     color: black;
     text-align: center;
     text-transform: uppercase;
