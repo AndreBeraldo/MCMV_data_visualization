@@ -10,6 +10,37 @@ from decimal import Decimal
 app = Flask(__name__)
 app.secret_key = '123'
 
+regioes = {
+    'ac': 'norte',
+    'al': 'nordeste',
+    'ap': 'norte',
+    'am': 'norte',
+    'ba': 'nordeste',
+    'ce': 'nordeste',
+    'df': 'centro-oeste',
+    'es': 'sudeste',
+    'go': 'centro-oeste',
+    'ma': 'nordeste',
+    'mt': 'centro-oeste',
+    'ms': 'centro-oeste',
+    'mg': 'sudeste',
+    'pa': 'norte',
+    'pb': 'nordeste',
+    'pr': 'sul',
+    'pe': 'nordeste',
+    'pi': 'nordeste',
+    'rj': 'sudeste',
+    'rn': 'nordeste',
+    'rs': 'sul',
+    'ro': 'norte',
+    'rr': 'norte',
+    'sc': 'sul',
+    'sp': 'sudeste',
+    'se': 'nordeste',
+    'to': 'norte',
+
+}
+
 
 def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
     geojson = {'type': 'FeatureCollection', 'features': []}
@@ -22,6 +53,9 @@ def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
         for prop in properties:
             if prop in ['estado', 'cidade', 'faixa']:
                 feature['properties'][prop] = row[prop]
+                if prop == 'estado':
+                    feature['properties']['regiao'] = regioes.get(
+                        str(row[prop]).lower())
             else:
                 feature['properties'][prop] = float(row[prop])
         feature['properties']['icon'] = 'music'
@@ -39,7 +73,6 @@ def plotAll():
         mycursor, mydb = connection()
         mycursor.execute('SELECT * from view_all')
         data = mycursor.fetchall()
-        print data[0]
         mycursor.close()
         mydb.close()
         gc.collect()
