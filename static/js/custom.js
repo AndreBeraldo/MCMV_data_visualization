@@ -152,11 +152,6 @@ map.on('load', function () {
     });
 
 
-
-
-
-
-
     // POPUP
     // When a click event occurs on a feature in the places layer, open a popup at the
     // location of the feature, with description HTML from its properties.
@@ -186,14 +181,188 @@ map.on('load', function () {
             .setHTML(code)
             .addTo(map);
     });
+        map.on('click', 'norte', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var estado = e.features[0].properties.estado;
+        var cidade = e.features[0].properties.cidade;
+        var faixa = e.features[0].properties.faixa;
+        var unid_hab = e.features[0].properties.unid_hab;
+        var invest = e.features[0].properties.invest;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        var code = '<h4 class="popup-title">' + cidade + ' / ' + estado + '</h4>'
+            + '<p class="popup-content">Unidades Habitacionais: ' + unid_hab + '</br>'
+            + 'Valor investido: ' + invest + '</br>'
+            + 'Renda: ' + faixa + '</p>';
+
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(code)
+            .addTo(map);
+    });
+        map.on('click', 'nordeste', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var estado = e.features[0].properties.estado;
+        var cidade = e.features[0].properties.cidade;
+        var faixa = e.features[0].properties.faixa;
+        var unid_hab = e.features[0].properties.unid_hab;
+        var invest = e.features[0].properties.invest;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        var code = '<h4 class="popup-title">' + cidade + ' / ' + estado + '</h4>'
+            + '<p class="popup-content">Unidades Habitacionais: ' + unid_hab + '</br>'
+            + 'Valor investido: ' + invest + '</br>'
+            + 'Renda: ' + faixa + '</p>';
+
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(code)
+            .addTo(map);
+    });
+        map.on('click', 'sul', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var estado = e.features[0].properties.estado;
+        var cidade = e.features[0].properties.cidade;
+        var faixa = e.features[0].properties.faixa;
+        var unid_hab = e.features[0].properties.unid_hab;
+        var invest = e.features[0].properties.invest;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        var code = '<h4 class="popup-title">' + cidade + ' / ' + estado + '</h4>'
+            + '<p class="popup-content">Unidades Habitacionais: ' + unid_hab + '</br>'
+            + 'Valor investido: ' + invest + '</br>'
+            + 'Renda: ' + faixa + '</p>';
+
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(code)
+            .addTo(map);
+    });
+        map.on('click', 'sudeste', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var estado = e.features[0].properties.estado;
+        var cidade = e.features[0].properties.cidade;
+        var faixa = e.features[0].properties.faixa;
+        var unid_hab = e.features[0].properties.unid_hab;
+        var invest = e.features[0].properties.invest;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        var code = '<h4 class="popup-title">' + cidade + ' / ' + estado + '</h4>'
+            + '<p class="popup-content">Unidades Habitacionais: ' + unid_hab + '</br>'
+            + 'Valor investido: ' + invest + '</br>'
+            + 'Renda: ' + faixa + '</p>';
+
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(code)
+            .addTo(map);
+    });
+        map.on('click', 'centro-oeste', function (e) {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var estado = e.features[0].properties.estado;
+        var cidade = e.features[0].properties.cidade;
+        var faixa = e.features[0].properties.faixa;
+        var unid_hab = e.features[0].properties.unid_hab;
+        var invest = e.features[0].properties.invest;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        var code = '<h4 class="popup-title">' + cidade + ' / ' + estado + '</h4>'
+            + '<p class="popup-content">Unidades Habitacionais: ' + unid_hab + '</br>'
+            + 'Valor investido: ' + invest + '</br>'
+            + 'Renda: ' + faixa + '</p>';
+
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(code)
+            .addTo(map);
+    });
+
+
+
+
 
     // Change the cursor to a pointer when the mouse is over the places layer.
-    map.on('mouseenter', 'places', function () {
+    map.on('mouseenter', 'mcmv', function () {
         map.getCanvas().style.cursor = 'pointer';
     });
 
     // Change it back to a pointer when it leaves.
-    map.on('mouseleave', 'places', function () {
+    map.on('mouseleave', 'mcmv', function () {
+        map.getCanvas().style.cursor = '';
+    });
+    map.on('mouseenter', 'sul', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'sul', function () {
+        map.getCanvas().style.cursor = '';
+    });
+    map.on('mouseenter', 'sudeste', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'sudeste', function () {
+        map.getCanvas().style.cursor = '';
+    });
+    map.on('mouseenter', 'norte', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'norte', function () {
+        map.getCanvas().style.cursor = '';
+    });
+    map.on('mouseenter', 'nordeste', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'nordeste', function () {
+        map.getCanvas().style.cursor = '';
+    });
+    map.on('mouseenter', 'centro-oeste', function () {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'centro-oeste', function () {
         map.getCanvas().style.cursor = '';
     });
 
