@@ -1,32 +1,32 @@
 /*var bounds = [
     [-80,-27], // Southwest coordinates
     [5,-10]  // Northeast coordinates
-];*/
+    ];*/
 
-mapboxgl.accessToken = 'pk.eyJ1IjoicGh4Njc4IiwiYSI6ImNqZjVpb2RieTBudnMzM2x0eXUzZHUxdnoifQ.Dev7xcoIcb2V3lIJ8FvOAw';
-map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/phx678/cjp3a11ip1ye02sn28wte5vqn?optimize=true',
-    center: [-55.9253, -14.235],
-    zoom: 3.5,
-    tolerance: 2.7
+    mapboxgl.accessToken = 'pk.eyJ1IjoicGh4Njc4IiwiYSI6ImNqZjVpb2RieTBudnMzM2x0eXUzZHUxdnoifQ.Dev7xcoIcb2V3lIJ8FvOAw';
+    map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/phx678/cjp3a11ip1ye02sn28wte5vqn?optimize=true',
+        center: [-55.9253, -14.235],
+        zoom: 3.5,
+        tolerance: 2.7
     //maxBounds: bounds
 });
 
-var toggleableLayerIds = ['mcmv', 'norte', 'sul', 'centro-oeste', 'nordeste', 'sudeste' ];
+    var toggleableLayerIds = ['mcmv', 'norte', 'sul', 'centro-oeste', 'nordeste', 'sudeste' ];
 
 
 
-var nav = new mapboxgl.NavigationControl();
-map.addControl(nav, 'top-right');
-map.addControl(new mapboxgl.FullscreenControl());
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-right');
+    map.addControl(new mapboxgl.FullscreenControl());
 
-map.on('load', function () {
+    map.on('load', function () {
 
-    let mcmv_data = {
-        'type': 'geojson',
-        'data': geocode_data
-    }
+        let mcmv_data = {
+            'type': 'geojson',
+            'data': geocode_data
+        }
     // FONTE DE DADOS
     map.addSource('mcmv_data', mcmv_data);
 
@@ -40,121 +40,182 @@ map.on('load', function () {
         },
         "paint": {
             'circle-radius':  6,
+            
+            'circle-opacity': .9,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#333',
+        
             //     {
             //     'base': 3,
             //     'stops': [[5, 5], [5, 5]]
             // },
             'circle-color': [
-                'match',
-                ['get', 'faixa'],
-                'Faixa 1', '#ce0600',
-                'Faixa 2', '#21497a',
-                'Faixa 3', '#0efb28',
-                /* other */ '#000000'
-            ]
+            'match',
+            ['get', 'faixa'],
+            'Faixa 1', '#FF2C21',
+            'Faixa 2', '#FFE742',
+            'Faixa 3', '#29B540',
+            /* other */ '#000000'
+            ],
+            
         },
         "filter": ["==", "$type", "Point"]
     });
 
     map.addLayer({
-    "id": "norte",
-    "type": "circle",
-    "source": "mcmv_data",
-    "layout": {
-        "visibility": 'none'
-    },
-    "paint": {
-        'circle-radius':  6,
-        //     {
-        //     'base': 3,
-        //     'stops': [[5, 5], [5, 5]]
-        // },
-        'circle-color': '#ce0600'
+        "id": "norte",
+        "type": "circle",
+        "source": "mcmv_data",
+        "layout": {
+            "visibility": 'none'
+        },
+        "paint": {
+            'circle-radius':  6,
+            
+            'circle-opacity': .9,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#333',
+        
+            //     {
+            //     'base': 3,
+            //     'stops': [[5, 5], [5, 5]]
+            // },
+            'circle-color': [
+            'match',
+            ['get', 'faixa'],
+            'Faixa 1', '#FF2C21',
+            'Faixa 2', '#FFE742',
+            'Faixa 3', '#29B540',
+            /* other */ '#000000'
+            ],
     },
     "filter": ["==", "regiao", "norte"]
 
-    });
+});
 
     map.addLayer({
-    "id": "nordeste",
-    "type": "circle",
-    "source": "mcmv_data",
-    "layout": {
-        "visibility": 'none'
-    },
-    "paint": {
-        'circle-radius':  6,
-        //     {
-        //     'base': 3,
-        //     'stops': [[5, 5], [5, 5]]
-        // },
-        'circle-color': '#ce0600'
+        "id": "nordeste",
+        "type": "circle",
+        "source": "mcmv_data",
+        "layout": {
+            "visibility": 'none'
+        },
+        "paint": {
+            'circle-radius':  6,
+            
+            'circle-opacity': .9,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#333',
+        
+            //     {
+            //     'base': 3,
+            //     'stops': [[5, 5], [5, 5]]
+            // },
+            'circle-color': [
+            'match',
+            ['get', 'faixa'],
+            'Faixa 1', '#FF2C21',
+            'Faixa 2', '#FFE742',
+            'Faixa 3', '#29B540',
+            /* other */ '#000000'
+            ],
     },
     "filter": ["==", "regiao", "nordeste"]
 
-    });
+});
 
     map.addLayer({
-    "id": "sul",
-    "type": "circle",
-    "source": "mcmv_data",
-    "layout": {
-        "visibility": 'none'
-    },
-    "paint": {
-        'circle-radius':  6,
-        //     {
-        //     'base': 3,
-        //     'stops': [[5, 5], [5, 5]]
-        // },
-        'circle-color': '#ce0600'
+        "id": "sul",
+        "type": "circle",
+        "source": "mcmv_data",
+        "layout": {
+            "visibility": 'none'
+        },
+        "paint": {
+            'circle-radius':  6,
+            
+            'circle-opacity': .9,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#333',
+        
+            //     {
+            //     'base': 3,
+            //     'stops': [[5, 5], [5, 5]]
+            // },
+            'circle-color': [
+            'match',
+            ['get', 'faixa'],
+            'Faixa 1', '#FF2C21',
+            'Faixa 2', '#FFE742',
+            'Faixa 3', '#29B540',
+            /* other */ '#000000'
+            ],
     },
     "filter": ["==", "regiao", "sul"]
 
-    });
+});
 
     map.addLayer({
-    "id": "sudeste",
-    "type": "circle",
-    "source": "mcmv_data",
-    "layout": {
-        "visibility": 'none'
-    },
-    "paint": {
-        'circle-radius':  6,
-        //     {
-        //     'base': 3,
-        //     'stops': [[5, 5], [5, 5]]
-        // },
-        'circle-color': '#ce0600'
+        "id": "sudeste",
+        "type": "circle",
+        "source": "mcmv_data",
+        "layout": {
+            "visibility": 'none'
+        },
+        "paint": {
+            'circle-radius':  6,
+            
+            'circle-opacity': .9,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#333',
+        
+            //     {
+            //     'base': 3,
+            //     'stops': [[5, 5], [5, 5]]
+            // },
+            'circle-color': [
+            'match',
+            ['get', 'faixa'],
+            'Faixa 1', '#FF2C21',
+            'Faixa 2', '#FFE742',
+            'Faixa 3', '#29B540',
+            /* other */ '#000000'
+            ],
     },
     "filter": ["==", "regiao", "sudeste"]
 
-    });
+});
 
     map.addLayer({
-    "id": "centro-oeste",
-    "type": "circle",
-    "source": "mcmv_data",
-    "layout": {
-        "visibility": 'none'
-    },
-    "paint": {
-        'circle-radius':  6,
-        //     {
-        //     'base': 3,
-        //     'stops': [[5, 5], [5, 5]]
-        // },
-        'circle-color': '#ce0600'
+        "id": "centro-oeste",
+        "type": "circle",
+        "source": "mcmv_data",
+        "layout": {
+            "visibility": 'none'
+        },
+        "paint": {
+            'circle-radius':  6,
+            
+            'circle-opacity': .9,
+            'circle-stroke-width': 1,
+            'circle-stroke-color': '#333',
+        
+            //     {
+            //     'base': 3,
+            //     'stops': [[5, 5], [5, 5]]
+            // },
+            'circle-color': [
+            'match',
+            ['get', 'faixa'],
+            'Faixa 1', '#FF2C21',
+            'Faixa 2', '#FFE742',
+            'Faixa 3', '#29B540',
+            /* other */ '#000000'
+            ],
     },
     "filter": ["==", "regiao", "centro-oeste"]
 
-    });
-
-
-
-
-
+});
 
 
     // POPUP
@@ -176,15 +237,15 @@ map.on('load', function () {
         }
 
         var code = '<h4 class="popup-title">' + cidade + ' / ' + estado + '</h4>'
-            + '<p class="popup-content">Unidades Habitacionais: ' + unid_hab + '</br>'
-            + 'Valor investido: ' + invest + '</br>'
-            + 'Renda: ' + faixa + '</p>';
+        + '<p class="popup-content">Unidades Habitacionais: ' + unid_hab + '</br>'
+        + 'Valor investido: ' + invest + '</br>'
+        + 'Renda: ' + faixa + '</p>';
 
 
         new mapboxgl.Popup()
-            .setLngLat(coordinates)
-            .setHTML(code)
-            .addTo(map);
+        .setLngLat(coordinates)
+        .setHTML(code)
+        .addTo(map);
     });
 
     // Change the cursor to a pointer when the mouse is over the places layer.
@@ -246,7 +307,7 @@ document.getElementById('nordeste').addEventListener('click', function () {
         center: [-45, -10],
         zoom: 5
     });
-        set_visible('nordeste');
+    set_visible('nordeste');
 
 });
 document.getElementById('centro-oeste').addEventListener('click', function () {
@@ -254,7 +315,7 @@ document.getElementById('centro-oeste').addEventListener('click', function () {
         center: [-56, -16],
         zoom: 5
     });
-        set_visible('centro-oeste');
+    set_visible('centro-oeste');
 
 });
 document.getElementById('norte').addEventListener('click', function () {
@@ -262,7 +323,7 @@ document.getElementById('norte').addEventListener('click', function () {
         center: [-60, -5],
         zoom: 4.5
     });
-        set_visible('norte');
+    set_visible('norte');
 
 });
 

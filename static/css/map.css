@@ -201,10 +201,41 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
     border-radius: 0;
 }
 
+#MyModal{
+    background-color: red;
+}
 .modal {
     background-color: rgba(33, 33, 33, .8);
     border: 2px solid #222;
 }
+
+.modal .modal-dialog {
+    position:fixed;
+    bottom:0px;
+    right:0px;
+    margin:0px;
+}
+
+
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+}
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+
+
+
+
+
 
 .modal-header {
     background-color: #333;
@@ -291,17 +322,52 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
 }
 
 /*.mapboxgl-popup {*/
-/*max-width: 500px;*/
-/*}*/
+    /*max-width: 500px;*/
+    /*}*/
 
-.popup-title {
-    color: green;
-    font-size: 18px;
+    .popup-title {
+        color: green;
+        font-size: 18px;
+    }
+
+    .popup-content {
+        color: black;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.graph{
+     position: absolute;
+    bottom: 20px;
+    right: 10px;
+    z-index: 1040;
+    border: 1px solid rgba(33,33,33, .3);
+
+
+    background-color: rgba(33,33,33, .12);
+     height: 45%;
+     width: 25% ;
 }
 
-.popup-content {
-    color: black;
+.graph-title{
+    padding: 5px;
     text-align: center;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 20px;
 }
