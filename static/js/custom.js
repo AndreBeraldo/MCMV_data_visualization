@@ -13,6 +13,9 @@ map = new mapboxgl.Map({
     //maxBounds: bounds
 });
 
+var toggleableLayerIds = ['mcmv', 'norte', 'sul', 'centro-oeste', 'nordeste', 'sudeste' ];
+
+
 
 var nav = new mapboxgl.NavigationControl();
 map.addControl(nav, 'top-right');
@@ -26,11 +29,15 @@ map.on('load', function () {
     }
     // FONTE DE DADOS
     map.addSource('mcmv_data', mcmv_data);
+
     // CAMADA DE EXIBIÇÃO DOS PONTOS
     map.addLayer({
         "id": "mcmv",
         "type": "circle",
         "source": "mcmv_data",
+        "layout": {
+            "visibility": 'visible'
+        },
         "paint": {
             'circle-radius':  6,
             //     {
@@ -40,14 +47,114 @@ map.on('load', function () {
             'circle-color': [
                 'match',
                 ['get', 'faixa'],
-                'Faixa 1', '#0efb28',
+                'Faixa 1', '#ce0600',
                 'Faixa 2', '#21497a',
-                'Faixa 3', '#ce0600',
+                'Faixa 3', '#0efb28',
                 /* other */ '#000000'
             ]
         },
         "filter": ["==", "$type", "Point"]
     });
+
+    map.addLayer({
+    "id": "norte",
+    "type": "circle",
+    "source": "mcmv_data",
+    "layout": {
+        "visibility": 'none'
+    },
+    "paint": {
+        'circle-radius':  6,
+        //     {
+        //     'base': 3,
+        //     'stops': [[5, 5], [5, 5]]
+        // },
+        'circle-color': '#ce0600'
+    },
+    "filter": ["==", "regiao", "norte"]
+
+    });
+
+    map.addLayer({
+    "id": "nordeste",
+    "type": "circle",
+    "source": "mcmv_data",
+    "layout": {
+        "visibility": 'none'
+    },
+    "paint": {
+        'circle-radius':  6,
+        //     {
+        //     'base': 3,
+        //     'stops': [[5, 5], [5, 5]]
+        // },
+        'circle-color': '#ce0600'
+    },
+    "filter": ["==", "regiao", "nordeste"]
+
+    });
+
+    map.addLayer({
+    "id": "sul",
+    "type": "circle",
+    "source": "mcmv_data",
+    "layout": {
+        "visibility": 'none'
+    },
+    "paint": {
+        'circle-radius':  6,
+        //     {
+        //     'base': 3,
+        //     'stops': [[5, 5], [5, 5]]
+        // },
+        'circle-color': '#ce0600'
+    },
+    "filter": ["==", "regiao", "sul"]
+
+    });
+
+    map.addLayer({
+    "id": "sudeste",
+    "type": "circle",
+    "source": "mcmv_data",
+    "layout": {
+        "visibility": 'none'
+    },
+    "paint": {
+        'circle-radius':  6,
+        //     {
+        //     'base': 3,
+        //     'stops': [[5, 5], [5, 5]]
+        // },
+        'circle-color': '#ce0600'
+    },
+    "filter": ["==", "regiao", "sudeste"]
+
+    });
+
+    map.addLayer({
+    "id": "centro-oeste",
+    "type": "circle",
+    "source": "mcmv_data",
+    "layout": {
+        "visibility": 'none'
+    },
+    "paint": {
+        'circle-radius':  6,
+        //     {
+        //     'base': 3,
+        //     'stops': [[5, 5], [5, 5]]
+        // },
+        'circle-color': '#ce0600'
+    },
+    "filter": ["==", "regiao", "centro-oeste"]
+
+    });
+
+
+
+
+
 
 
     // POPUP
@@ -94,11 +201,26 @@ map.on('load', function () {
 });
 
 
+function set_visible(layer_id){
+    for (var i = 0; i < toggleableLayerIds.length; i++){
+        var id = toggleableLayerIds[i];
+        map.setLayoutProperty(id, 'visibility', 'none');
+        console.log(id)
+    }
+    map.setLayoutProperty(layer_id, 'visibility', 'visible');
+    status = map.setLayoutProperty(layer_id, 'visibility');
+    console.log(status)
+
+}
+
 document.getElementById('visaoGeral').addEventListener('click', function () {
     map.flyTo({
         center: [-55.9253, -14.235],
         zoom: 3.5
     });
+
+    set_visible('mcmv');
+
 });
 
 document.getElementById('sul').addEventListener('click', function () {
@@ -106,6 +228,8 @@ document.getElementById('sul').addEventListener('click', function () {
         center: [-52, -27],
         zoom: 5.5
     });
+
+    set_visible('sul');
 });
 
 document.getElementById('sudeste').addEventListener('click', function () {
@@ -113,6 +237,8 @@ document.getElementById('sudeste').addEventListener('click', function () {
         center: [-47.2096, -20.0],
         zoom: 5.5
     });
+
+    set_visible('sudeste');
 });
 
 document.getElementById('nordeste').addEventListener('click', function () {
@@ -120,18 +246,24 @@ document.getElementById('nordeste').addEventListener('click', function () {
         center: [-45, -10],
         zoom: 5
     });
+        set_visible('nordeste');
+
 });
 document.getElementById('centro-oeste').addEventListener('click', function () {
     map.flyTo({
         center: [-56, -16],
         zoom: 5
     });
+        set_visible('centro-oeste');
+
 });
 document.getElementById('norte').addEventListener('click', function () {
     map.flyTo({
         center: [-60, -5],
         zoom: 4.5
     });
+        set_visible('norte');
+
 });
 
 document.getElementById('listing-group').addEventListener('change', function (e) {
