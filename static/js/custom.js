@@ -32,8 +32,19 @@ map.on('load', function () {
         "type": "circle",
         "source": "mcmv_data",
         "paint": {
-            "circle-radius": 6,
-            "circle-color": "#b429ab"
+            'circle-radius':  6,
+            //     {
+            //     'base': 3,
+            //     'stops': [[5, 5], [5, 5]]
+            // },
+            'circle-color': [
+                'match',
+                ['get', 'faixa'],
+                'Faixa 1', '#0efb28',
+                'Faixa 2', '#21497a',
+                'Faixa 3', '#ce0600',
+                /* other */ '#000000'
+            ]
         },
         "filter": ["==", "$type", "Point"]
     });
