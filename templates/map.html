@@ -82,7 +82,7 @@
 		<div class="barra">
 
 			<nav class="menu-map" id="listing-group">
-				<div class="menu-title">
+				<!--<div class="menu-title">
 					Relatórios
 				</div>
 				<a data-toggle="modal" data-target="#incentivoFiscal">
@@ -95,11 +95,11 @@
 				</div>
 				<a data-toggle="modal" data-target="#cadastrar">
 					<div class="link">Selecionar Filtros</div>
-				</a>
+				</a>-->
 
 
 				<div class="menu-title">
-					Voar pelo mapa (regiões)
+					Regiões
 				</div>
 
 
@@ -128,83 +128,6 @@
 					<div class="link" type="button" value="SUL" id="sul" onclick="sulDados()">Sul</div>
 
 				</a>
-				<a id="renda1"><div class="link">Renda 1</div></a>
-
-
-
-	<div class="modal fade" id="incentivoFiscal" tabindex="-1" role="dialog"
-	aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<p>Localidades com maior incentivo fiscal pelo MCMV</p>
-				<button type="button" class="close" data-dismiss="modal"
-				aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
-		<div class="modal-body">
-			<div class="row">
-				<div class="col-3">
-					<div class="nav flex-column nav-pills" id="v-pills-tab"
-					role="tablist" aria-orientation="vertical">
-					<a class="nav-link active" id="v-pills-home-tab"
-					data-toggle="pill" href="#v-pills-home"
-					role="tab" aria-controls="v-pills-home"
-					aria-selected="true">Como funciona</a>
-					<a class="nav-link" id="v-pills-profile-tab"
-					data-toggle="pill" href="#v-pills-profile"
-					role="tab" aria-controls="v-pills-profile"
-					aria-selected="false">Regiões</a>
-					<a class="nav-link" id="v-pills-messages-tab"
-					data-toggle="pill" href="#v-pills-messages"
-					role="tab" aria-controls="v-pills-messages"
-					aria-selected="false">Estados</a>
-					<a class="nav-link" id="v-pills-settings-tab"
-					data-toggle="pill" href="#v-pills-settings"
-					role="tab" aria-controls="v-pills-settings"
-					aria-selected="false">Cidades</a>
-				</div>
-			</div>
-			<div class="col-9">
-				<div class="tab-content" id="v-pills-tabContent">
-					<div class="tab-pane fade show active"
-					id="v-pills-home" role="tabpanel"
-					aria-labelledby="v-pills-home-tab"><p
-					class="paragrafos">O programa "Minha Casa
-					Minha Vida" tem por objetivo oferecer condições
-					atrativas para o financiamento de moradias
-					urbanas para famílias de baixa renda. Neste
-					relatório é capaz de encontrar gráficos que
-					demonstram como tem sido distribuído os
-					recursos através das macro-regiões, os estados
-				e os municípios.</p></div>
-				<div class="tab-pane fade" id="v-pills-profile"
-				role="tabpanel"
-				aria-labelledby="v-pills-profile-tab">
-				<div id="containerRegioes"
-				style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-			</div>
-			<div class="tab-pane fade" id="v-pills-messages"
-			role="tabpanel"
-			aria-labelledby="v-pills-messages-tab">
-			<div id="containerEstados"
-			style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-		</div>
-		<div class="tab-pane fade" id="v-pills-settings"
-		role="tabpanel"
-		aria-labelledby="v-pills-settings-tab">
-		<div id="containerCidades"
-		style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-	</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-</div>
 
 
 {% with messages = get_flashed_messages() %}

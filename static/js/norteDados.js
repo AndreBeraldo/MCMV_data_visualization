@@ -22,7 +22,8 @@ Highcharts.chart('containerNorte', {
             'Roraima',
             'Rondônia',
             'Tocantins',
-            'Pará'
+            'Pará',
+            'Amapá'
  
         ],
         crosshair: true
@@ -49,7 +50,7 @@ Highcharts.chart('containerNorte', {
     },
     series: [{
         name: 'Regiões',
-        data: [49.9, 71.5, 106.4,20, 30, 15]
+        data: [22140, 3798, 177,10053, 9391, 43606, 4055]
 
     }]
 });
