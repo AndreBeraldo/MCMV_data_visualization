@@ -168,21 +168,21 @@
 				<div class="modal-body">
 					<div class="row">
 						<div class="col-5">
-							<select class="form-control">
-								<option>123</option>
-								{% for row in geoJson %}
-								<option>{{ row.1 }}</option>
-								<option>teste</option>
+							<select class="form-control" value="Primeira cidade">
+								{% for row in getValor %}
+									<option>{{ row.3 }} / {{ row.2 }}</option>
 								{% endfor %}
 							</select>
 						</div>
 						<div class="col-5">
-							<select class="form-control">
-								<option>123</option>
-								{% for row in geoJson %}
-								<option>{{ row.1 }}</option>
+							<select class="form-control" value="Segunda cidade">
+								{% for row in getValor %}
+									<option>{{ row.3 }} / {{ row.2 }}</option>
 								{% endfor %}
 							</select>
+						</div>
+						<div class="col-md-2">
+							<button type="submit" class="btn btn-primary">Comparar</button>
 						</div>
 					</div>
 				</div>

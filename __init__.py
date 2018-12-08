@@ -82,7 +82,7 @@ def plotAll():
         cols = ['estado', 'cidade', 'faixa', 'unid_hab', 'invest']
         geojson = df_to_geojson(df_data, cols)
 
-        return render_template("map.html", geoJson=geojson)
+        return render_template("map.html", geoJson=geojson, getValor=data)
     except Exception as e:
         return (str(e))
 
