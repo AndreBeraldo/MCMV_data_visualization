@@ -73,11 +73,12 @@ def plotAll():
         mycursor, mydb = connection()
         mycursor.execute('SELECT * from view_all')
         data = mycursor.fetchall()
+
         mycursor.close()
         mydb.close()
         gc.collect()
         headers = ('longitude', 'latitude', 'estado', 'cidade',
-                   'faixa', 'unid_hab', 'invest')
+                   'faixa', 'unid_hab', 'invest', 'id')
         df_data = pd.DataFrame(data=data, columns=headers)
         cols = ['estado', 'cidade', 'faixa', 'unid_hab', 'invest']
         geojson = df_to_geojson(df_data, cols)

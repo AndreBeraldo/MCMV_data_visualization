@@ -211,6 +211,12 @@ option{
 }
 
 
+.destaque{
+    font-weight: 700;
+    font-size: 18px;
+    color: #5566E8;
+}
+
 
 /*
 #MyModal{

@@ -3,6 +3,9 @@
     [5,-10]  // Northeast coordinates
     ];*/
 
+
+
+
     mapboxgl.accessToken = 'pk.eyJ1IjoicGh4Njc4IiwiYSI6ImNqZjVpb2RieTBudnMzM2x0eXUzZHUxdnoifQ.Dev7xcoIcb2V3lIJ8FvOAw';
     map = new mapboxgl.Map({
         container: 'map',

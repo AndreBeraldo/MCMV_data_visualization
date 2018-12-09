@@ -23,6 +23,22 @@
 
 	<script>
 		var geocode_data = JSON.parse('{{ geoJson | tojson }}');
+		var totalUHs = 1551195;
+		var UHSudeste = 547611;
+		var UHSul = 296241;
+		var UHNordeste = 447191;
+		var UHNorte = 93336;
+		var UHCentroOeste = 159587;
+		/*'{% for row in getValor %}'
+		
+		'{% endfor %}'*/
+
+		var sudesteEstados = new Array("SP", "MG", "RJ", "ES");
+		var sulEstados = new Array("RS", "PR", "SC");
+		var centrooesteEstados = new Array("MT", "MS", "GO");
+		var norteEstados = new Array("AC", "AP", "AM", "PA", "RO", "RR", "TO");
+		var nordesteEstados = new Array("AL", "BA", "CE", "MA", "PB", "PE", "PI", "RN", "SE");
+
 	</script>
 
 	<title>Dashboard - Minha Casa Minha Vida</title>
@@ -134,11 +150,15 @@
 					Ferramentas
 				</div>
 
-
+				<a data-toggle="modal" data-target="#cidEspecifica">
+					<div class="link" type="button">Informações de uma cidade
+					</div>
+				</a>
 				<a data-toggle="modal" data-target="#c2c">
 					<div class="link" type="button">Comparar duas cidades
 					</div>
 				</a>
+
 			</nav>
 		</div>
 
@@ -156,6 +176,141 @@
 	{% endif %}
 	{% endwith %}
 
+
+
+	<div class="modal fade" id="cidEspecifica" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<p>Escolha uma cidade para receber suas informações!</p>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-8">
+							<select class="form-control" value="Primeira cidade" id="escolherCidade">
+								<option>Escolha uma cidade</option>
+								{% for row in getValor %}
+								<option value="{{row.7}}">{{ row.3 }} / {{ row.2 }}</option>
+								{% endfor %}
+							</select>
+						</div>
+						<div class="col-md-2">
+							<button class="btn btn-primary" onclick="cidadeEspecifica()" id="aparecerConteudo">Receber informações</button>
+						</div>
+					</div>
+					<hr>
+					<div class="modal-body-hid" id="informations" style="display: none;">
+						<div class="row text-center">
+							<div id="cidadeInfContent"></div>
+							<hr>
+							<div class="col-md-8" id="informGraph1" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>		
+							<div class="col-md-4" id="informText1"></div>
+						</div>
+					</div>
+				</div>
+				
+
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		function cidadeEspecifica() {
+			var e = document.getElementById("escolherCidade");
+			var strUser = e.options[e.selectedIndex].value;
+			var x = document.getElementById("informations");
+			x.style.display = "block";
+
+			'{% for row in getValor %}'
+			if('{{row.7}}' == strUser){
+				var investimento = '{{row.6}}';
+				var UHs = parseInt('{{row.5}}');
+				var UHRegAux = 0;
+				var cidade = '{{row.3}}';
+				var Regiao;
+				document.getElementById("cidadeInfContent").innerHTML = "<h3>"+'{{row.3}}'+"/"+'{{row.2}}'+"</h3><br><p>A cidade de <b class='destaque'>"+ '{{row.3}}'+"/"+'{{row.2}}'+"</b>, recebeu <b class='destaque'>" +UHs+"</b> unidades habitacionais através de um investimento de <b class='destaque'>"+ parseFloat(investimento).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })+"</b> pelo projeto Minha Casa Minha Vida</p>";
+
+				document.getElementById("informText1").innerHTML = "<p> Isso significa que a cidade tem 100% dos investimentos!";
+				
+				if(sudesteEstados.indexOf('{{row.2}}') != -1){
+					UHRegAux = UHSudeste;
+					Regiao = "Sudeste";
+				}
+				
+				if(sulEstados.indexOf('{{row.2}}') != -1){
+					UHRegAux = UHSul;	
+					Regiao = "Sul";
+				}
+				
+				if(centrooesteEstados.indexOf('{{row.2}}') != -1){
+					UHRegAux = UHCentroOeste;
+					Regiao = "Centro-Oeste";
+				}
+				
+				if(norteEstados.indexOf('{{row.2}}') != -1){
+					UHRegAux = UHNorte;
+					Regiao = "Norte";
+				}
+				
+				if(nordesteEstados.indexOf('{{row.2}}') != -1){
+					UHRegAux = UHNordeste;
+					Regiao = "Nordeste";
+				}
+
+
+				/*
+				Highcharts.chart('informGraph1', {
+					chart: {
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false,
+						type: 'pie'
+					},
+					title: {
+						text: "Quantas UHs {{row.3}} recebeu dentro de sua região?"  
+					},
+					tooltip: {
+						pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: true,
+								format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+								style: {
+									color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+								}
+							}
+						}
+					},
+					series: [{
+						name: 'Brands',
+						colorByPoint: true,
+						data: [{
+							name: Regiao,
+							y: UHRegAux,
+							sliced: true,
+							selected: true
+						}, {
+							name: "{{row.3}}",
+							y: UHs
+						}]
+					}]
+				});
+				*/
+			}
+			
+			'{% endfor %}'
+		}
+	</script>
+
+
 	<div class="modal fade" id="c2c" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
@@ -169,15 +324,17 @@
 					<div class="row">
 						<div class="col-5">
 							<select class="form-control" value="Primeira cidade">
+								<option>Escolha a primeira cidade</option>
 								{% for row in getValor %}
-									<option>{{ row.3 }} / {{ row.2 }}</option>
+								<option>{{ row.3 }} / {{ row.2 }}</option>
 								{% endfor %}
 							</select>
 						</div>
 						<div class="col-5">
 							<select class="form-control" value="Segunda cidade">
+								<option>Escolha a segunda cidade</option>
 								{% for row in getValor %}
-									<option>{{ row.3 }} / {{ row.2 }}</option>
+								<option>{{ row.3 }} / {{ row.2 }}</option>
 								{% endfor %}
 							</select>
 						</div>
@@ -190,6 +347,15 @@
 			</div>
 		</div>
 	</div>
+
+	<footer class="fixed bottom">
+		<div class="container">
+			<div class="row">
+				testando
+			</div>
+		</div>
+
+	</footer>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
