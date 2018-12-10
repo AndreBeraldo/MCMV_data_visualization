@@ -91,6 +91,14 @@
 
 	</div>
 
+    <div class="graph" id="estadosRegiao" style="display: block;">
+
+		<div class="graph-content">
+			<div id="containerEstadosRegiao" style="height: 50%; width: 100%;"></div>
+		</div>
+
+	</div>
+
 	<input type="checkbox" id="check">
 	<label id="icone" for="check"><img src="../static/bg_img/menu.png"
 		width="40px"></label>
@@ -120,7 +128,7 @@
 
 
 				<a>
-					<div class="link" type="button" value="VG" id="visaoGeral">Visão
+					<div class="link" type="button" value="VG" id="visaoGeral" onclick="ranking_regioes()">Visão
 						Geral
 					</div>
 				</a>
@@ -364,8 +372,9 @@
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
 
 	<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/incentivoFiscal.js') }}"></script>
+{#	<script src="{{ url_for('static', filename='js/incentivoFiscal.js') }}"></script>#}
 
+    <script src="{{ url_for('static', filename='js/estadosRegiao.js') }}"/>
 
 	<script src="{{ url_for('static', filename='js/sulDados.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/sudesteDados.js') }}"></script>

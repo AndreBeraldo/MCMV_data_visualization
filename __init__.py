@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, render_template, flash, request, url_for, redirect, \
     session
 from wtforms import Form
@@ -6,6 +8,8 @@ from dbconnect import connection
 import gc
 import pandas as pd
 from decimal import Decimal
+
+
 
 app = Flask(__name__)
 app.secret_key = '123'
@@ -86,6 +90,45 @@ def plotAll():
         return render_template("map.html", geoJson=geojson, getValor=data)
     except Exception as e:
         return (str(e))
+
+lista = ['mg', 'sp', 'rj', 'es']
+@app.route('/get_ranking_regioes/<regiao>')
+def get_ranking_regioes(regiao):
+
+    list_ufs = [key for key, value in regioes.iteritems() if value == regiao]
+    query = 'SELECT UF,UH FROM PROJETOS where UF in {}'.format(str(tuple(list_ufs)))
+
+    cr, db = connection()
+    cr.execute(query)
+    data = cr.fetchall()
+
+    cr.close()
+    db.close()
+    gc.collect()
+
+    def get_uf_pos(uf, res):
+        for idx, uf1 in enumerate(res.get('uf')):
+            if uf == uf1:
+                return idx
+        return False
+
+    lista = list(data)
+    res = {'uf': [], 'valores': []}
+    UF = 0
+    UH = 1
+    for idx, linha in enumerate(lista):
+        if linha[UF] not in res['uf']:
+            res['uf'].append(linha[UF])
+            res['valores'].append(int(linha[UH]))
+        else:
+            pos = get_uf_pos(linha[UF], res)
+            res['valores'][pos] += int(linha[UH])
+
+    print(res)
+
+    return json.dumps(res, ensure_ascii=False)
+
+
 
 
 if __name__ == "__main__":
